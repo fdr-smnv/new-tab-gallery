@@ -1,5 +1,5 @@
-import newtabWebpackConfig from './src/newtab/webpack.config';
-import backgroundWebpackConfig from './src/background/webpack.config';
+const newtabWebpackConfig = require('./src/newtab/webpack.config');
+const backgroundWebpackConfig = require('./src/background/webpack.config');
 
 module.exports = [
   newtabWebpackConfig,
