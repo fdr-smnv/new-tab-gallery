@@ -1,0 +1,12 @@
+.App {
+  position: relative;
+  min-height: 100vh;
+  //background: #e0e0e0;
+  background: linear-gradient(318.32deg, #C3D1E4 0%, #DDE7F3 55%, #D4E0ED 100%);
+
+  &__title {
+    margin: 0;
+    font-family: monospace;
+    color: dimgrey;
+  }
+}
