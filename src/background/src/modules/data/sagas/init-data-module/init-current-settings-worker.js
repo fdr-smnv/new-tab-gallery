@@ -7,6 +7,10 @@ export function* initCurrentSettingsSagaWorker() {
     const localStorageCurrentSettings = yield call(getLocalStorageDataSagaWorker, 'currentSettings');
     if (Object.keys(localStorageCurrentSettings).length) {
       yield put(setCurrentSettingsAction(localStorageCurrentSettings));
+    } else {
+      yield put(setCurrentSettingsAction({
+        form: 'any', type: 'other', school: 'any', timeline: 'any',
+      }));
     }
   } catch (error) {
     console.error(error);

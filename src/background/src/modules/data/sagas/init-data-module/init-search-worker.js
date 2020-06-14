@@ -1,5 +1,5 @@
 import { call, put } from '@redux-saga/core/effects';
-import { fetchSearchDataSagaWorker } from '../fetch-search-data-worker';
+import { fetchSearchDataSagaWorker } from '../fetch-data-module/fetch-search-data-worker';
 import { getLocalStorageDataSagaWorker } from '../local-storage-module/get-local-storage-data-worker';
 import { setSearchDataAction } from '../../actions';
 
