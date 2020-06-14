@@ -3,6 +3,7 @@ import {
   SET_CURRENT_SETTINGS,
   SET_ITEMS_ARRAY,
   SET_SEARCH_DATA,
+  UPDATE_SEARCH_SELECT_DATA,
 } from './actions';
 
 const initialState = {
@@ -34,6 +35,13 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         searchData: payload,
       };
+    case UPDATE_SEARCH_SELECT_DATA: {
+      const { value, settingsField } = payload;
+      return {
+        ...state,
+        currentSettings: { ...state.currentSettings, [settingsField]: value },
+      };
+    }
     default:
       return state;
   }

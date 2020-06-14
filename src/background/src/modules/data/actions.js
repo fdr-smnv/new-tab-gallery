@@ -23,9 +23,8 @@ export const setSearchDataAction = (payload) => ({
 });
 
 export const FETCH_NEW_ITEMS = 'FETCH_NEW_ITEMS';
-export const fetchNewItemsSagaAction = (payload) => ({
+export const fetchNewItemsSagaAction = () => ({
   type: FETCH_NEW_ITEMS,
-  payload,
 });
 
 export const FETCH_SEARCH_DATA = 'FETCH_SEARCH_DATA';
@@ -47,5 +46,11 @@ export const getLocalStorageDataSagaAction = (payload) => ({
 export const SET_LOCAL_STORAGE_DATA = 'SET_LOCAL_STORAGE_DATA';
 export const setLocalStorageDataSagaAction = (payload) => ({
   type: SET_LOCAL_STORAGE_DATA,
+  payload,
+});
+
+export const UPDATE_SEARCH_SELECT_DATA = 'UPDATE_SEARCH_SELECT_DATA';
+export const updateSearchSelectDataAction = (payload) => ({
+  type: UPDATE_SEARCH_SELECT_DATA,
   payload,
 });
