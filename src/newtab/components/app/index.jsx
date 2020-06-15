@@ -8,13 +8,10 @@ import {
   getLocalStorageDataSagaAction,
   setLocalStorageDataSagaAction,
   updateSearchSelectDataAction,
-} from '../../../../background/src/modules/data/actions';
+} from '../../../background/modules/data/actions';
 import { MenuContainer } from '../_components/menu-container';
 import { ImageView } from '../_components/image-view';
-import {
-  getCurrentSettings,
-  getDataStorage,
-} from '../../../../background/src/modules/data/selectors';
+import { getCurrentSettings, getDataStorage } from '../../../background/modules/data/selectors';
 
 const BLOCK_NAME = 'App';
 const cn = classNames.bind(styles);
