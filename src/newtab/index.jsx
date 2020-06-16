@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../../node_modules/normalize.css/normalize.css';
+import 'normalize.css';
 import { Store } from 'webext-redux';
 import { Provider } from 'react-redux';
 import App from './components/app';

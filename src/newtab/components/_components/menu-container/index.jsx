@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import React, { memo, useCallback, useState } from 'react';
+import { searchSettings } from '@newtab/constants';
 import styles from './index.module.scss';
-import { searchSettings } from '../../../constants';
 
 const BLOCK_NAME = 'Search-menu';
 const cn = classNames.bind(styles);

@@ -1,17 +1,17 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
-import styles from './index.module.scss';
 import {
   fetchNewItemsSagaAction,
   fetchSearchDataSagaAction,
   getLocalStorageDataSagaAction,
   setLocalStorageDataSagaAction,
   updateSearchSelectDataAction,
-} from '../../../background/modules/data/actions';
+} from '@/background/modules/data/actions';
+import { getCurrentSettings, getDataStorage } from '@/background/modules/data/selectors';
+import styles from './index.module.scss';
 import { MenuContainer } from '../_components/menu-container';
 import { ImageView } from '../_components/image-view';
-import { getCurrentSettings, getDataStorage } from '../../../background/modules/data/selectors';
 
 const BLOCK_NAME = 'App';
 const cn = classNames.bind(styles);
