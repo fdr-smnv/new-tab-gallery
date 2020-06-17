@@ -4,11 +4,9 @@ import { connect } from 'react-redux';
 import {
   fetchNewItemsSagaAction,
   fetchSearchDataSagaAction,
-  getLocalStorageDataSagaAction,
-  setLocalStorageDataSagaAction,
   updateSearchSelectDataAction,
 } from '@/background/modules/data/actions';
-import { getCurrentSettings, getDataStorage } from '@/background/modules/data/selectors';
+import { getCurrentItem, getCurrentSettings } from '@/background/modules/data/selectors';
 import styles from './index.module.scss';
 import { MenuContainer } from '../_components/menu-container';
 import { ImageView } from '../_components/image-view';
@@ -28,18 +26,11 @@ class App extends PureComponent {
   }
 
   render() {
-    const { data, currentSettings } = this.props;
-    // const { currentItem, itemsArray, currentSettings } = data;
+    const { currentSettings, currentItem } = this.props;
 
     return (
       <div className={cn(`${BLOCK_NAME}`)}>
-        {
-          JSON.stringify(
-            data,
-            null, 4,
-          )
-        }
-        <ImageView />
+        <ImageView url={currentItem.imageURL} dimensions={currentItem.dimensions} />
         <MenuContainer
           currentSettings={currentSettings}
           updateSearchSelectData={this.updateSearchSelectData}
@@ -51,14 +42,11 @@ class App extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  count: state.count,
-  data: getDataStorage(state),
   currentSettings: getCurrentSettings(state),
+  currentItem: getCurrentItem(state),
 });
 
 const mapDispatchToProps = {
-  getLocalStorageData: getLocalStorageDataSagaAction,
-  setLocalStorageData: setLocalStorageDataSagaAction,
   fetchSearchData: fetchSearchDataSagaAction,
   fetchNewItems: fetchNewItemsSagaAction,
   updateSearchSelectData: updateSearchSelectDataAction,
