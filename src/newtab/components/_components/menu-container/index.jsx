@@ -21,51 +21,53 @@ export const MenuContainer = memo(({ currentSettings, updateSearchSelectData, fe
   }, [fetchNewItems]);
   return (
     <div className={cn(`${BLOCK_NAME}`, { [`${BLOCK_NAME}--open`]: isOpen })}>
-      <div className={cn(`${BLOCK_NAME}__open-button-container`)}>
-        <button
-          type="button"
-          onClick={onMenuClick}
-          aria-label="Open menu button"
-          className={cn(`${BLOCK_NAME}__open-button`)}
-        />
-      </div>
-      <div className={cn(`${BLOCK_NAME}__selectors`)}>
-        <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-          <select title="form" value={currentSettings.form} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-            {searchSettings.form.map((form) => <option key={form} value={form}>{form}</option>)}
-          </select>
+      <div className={cn(`${BLOCK_NAME}__menu-wrapper`)}>
+        <div className={cn(`${BLOCK_NAME}__open-button-container`)}>
+          <button
+            type="button"
+            onClick={onMenuClick}
+            aria-label="Open menu button"
+            className={cn(`${BLOCK_NAME}__open-button`)}
+          />
         </div>
-        <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-          <select title="type" value={currentSettings.type} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-            {searchSettings.type.map((type) => <option key={type} value={type}>{type}</option>)}
-          </select>
-        </div>
-        <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-          <select title="school" value={currentSettings.school} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-            {
+        <div className={cn(`${BLOCK_NAME}__selectors`)}>
+          <div className={cn(`${BLOCK_NAME}__selector-container`)}>
+            <select title="form" value={currentSettings.form} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+              {searchSettings.form.map((form) => <option key={form} value={form}>{form}</option>)}
+            </select>
+          </div>
+          <div className={cn(`${BLOCK_NAME}__selector-container`)}>
+            <select title="type" value={currentSettings.type} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+              {searchSettings.type.map((type) => <option key={type} value={type} className={cn(`${BLOCK_NAME}__option`)}>{type}</option>)}
+            </select>
+          </div>
+          <div className={cn(`${BLOCK_NAME}__selector-container`)}>
+            <select title="school" value={currentSettings.school} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+              {
               searchSettings.school.map((school) => (
                 <option key={school} value={school}>
                   {school}
                 </option>
               ))
             }
-          </select>
-        </div>
-        <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-          <select title="timeline" value={currentSettings.timeline} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-            {
+            </select>
+          </div>
+          <div className={cn(`${BLOCK_NAME}__selector-container`)}>
+            <select title="timeline" value={currentSettings.timeline} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+              {
               searchSettings.timeline.map((timeline) => (
                 <option key={timeline} value={timeline}>
                   {timeline}
                 </option>
               ))
             }
-          </select>
-        </div>
-        <div className={cn(`${BLOCK_NAME}__search-button-container`)}>
-          <button type="button" onClick={searchButtonOnClick} className={cn(`${BLOCK_NAME}__search-button`)}>
-            Search
-          </button>
+            </select>
+          </div>
+          <div className={cn(`${BLOCK_NAME}__search-button-container`)}>
+            <button type="button" onClick={searchButtonOnClick} className={cn(`${BLOCK_NAME}__search-button`)}>
+              Search
+            </button>
+          </div>
         </div>
       </div>
     </div>

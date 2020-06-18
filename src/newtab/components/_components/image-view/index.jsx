@@ -10,6 +10,7 @@ const cn = classNames.bind(styles);
 export const ImageView = memo(({ url, dimensions }) => {
   const imageWidth = useMemo(() => (dimensions ? dimensions.width : 0), [dimensions]);
   const imageHeight = useMemo(() => (dimensions ? dimensions.height : 0), [dimensions]);
+  // eslint-disable-next-line no-unused-vars
   const [isLoading, setIsLoading] = useState(true);
   const currentImage = useMemo(() => new Image(), []);
   const canvasContainerRef = useRef(null);
@@ -59,14 +60,11 @@ export const ImageView = memo(({ url, dimensions }) => {
     <div className={cn(`${BLOCK_NAME}`)}>
       <>
         <div className={cn(`${BLOCK_NAME}__canvas-container`)} ref={canvasContainerRef}>
-          {isLoading ? '' : (
-
-            <img
-              className={cn(`${BLOCK_NAME}__canvas`)}
-              alt="Gallery canvas"
-              src={currentImage.src}
-            />
-          )}
+          <img
+            className={cn(`${BLOCK_NAME}__canvas`)}
+            src={currentImage.src}
+            alt=""
+          />
         </div>
       </>
     </div>
