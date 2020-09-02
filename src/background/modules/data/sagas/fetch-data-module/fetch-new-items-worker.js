@@ -1,4 +1,5 @@
 import { call, put, select } from '@redux-saga/core/effects';
+import { getItemImageUrl } from '@background/modules/data/utils/get-item-image-url';
 import { getCurrentSettings, getDataStorage, getSearchData } from '../../selectors';
 import { newItemPaths } from '../../utils/find-new-items-path';
 import {
@@ -6,6 +7,18 @@ import {
   setItemsArrayAction,
   setLocalStorageDataSagaAction,
 } from '../../actions';
+
+const getImageDimensionsHelper = (url) => new Promise((resolve, reject) => {
+  const img = new Image();
+  img.onload = () => {
+    const { naturalWidth: width, naturalHeight: height } = img;
+    resolve({ width, height });
+  };
+  img.onerror = () => {
+    reject(new Error('There was some problem with the image.'));
+  };
+  img.src = url;
+});
 
 export function* fetchNewItemsSagaWorker() {
   const baseURL = 'https://fdr-smnv.github.io/new-tab-gallery-pages/';
@@ -27,6 +40,8 @@ export function* fetchNewItemsSagaWorker() {
     yield put(setItemsArrayAction(newItems));
 
     const newCurrentItem = newItems[Math.floor(Math.random() * newItems.length)];
+    newCurrentItem.imageURL = getItemImageUrl(newCurrentItem.url);
+    newCurrentItem.dimensions = yield call(() => getImageDimensionsHelper(newCurrentItem.imageURL));
     yield put(setCurrentItemAction(newCurrentItem));
 
     const store = yield select(getDataStorage);

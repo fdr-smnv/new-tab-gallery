@@ -13,7 +13,8 @@
   "rules": {
     "import/prefer-default-export": "off",
     "react/prop-types": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2018,

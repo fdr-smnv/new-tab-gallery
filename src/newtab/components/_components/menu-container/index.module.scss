@@ -1,16 +1,23 @@
 .Search-menu {
   position: fixed;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: center;
   bottom: 0;
   height: 100px;
-  width: 50%;
-  left: 25%;
-  background-color: #DEEAF6;
+  width: 100vw;
   transform: translateY(50px);
   transition: all 0.2s ease-in-out;
-  border-radius: 6px;
+
+  &__menu-wrapper {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px 10px 0 10px ;
+    background-color: #DEEAF6;
+    border-radius: 6px;
+    box-shadow:  20px 20px 60px #bdc7d1, -20px -20px 60px #ffffff;
+  }
 
   &--open {
     transform: translateY(0);
@@ -32,19 +39,67 @@
 
   &__selectors {
     display: flex;
+    justify-content: space-between;
     flex-basis: 100%;
     height: 50%;
   }
 
   &__selector-container {
-    flex-basis: 20%;
+    flex-basis: 18%;
     height: 100%;
     width: 100%;
+    border-radius: 50%;
   }
 
   &__selector {
-    height: 100%;
     width: 100%;
+    height: 35px;
+    padding: 4px 4px 4px 10px;
+    border-radius: 4px;
+    box-shadow:  20px 20px 60px #bdc7d1, -20px -20px 60px #ffffff;
+    background: #e2eaf6;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+
+    &-label {
+      position: relative;
+
+      &:after {
+        content: '<>';
+        font: 11px "Consolas", monospace;
+        color: #666;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        transform: rotate(90deg);
+        right: 8px;
+        top: 2px;
+        padding: 0 0 2px;
+        border-bottom: 1px solid #ddd;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      &:before {
+        content: '';
+        right: 6px;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: #e2eaf6;
+        position: absolute;
+        pointer-events: none;
+        display: block;
+      }
+    }
+  }
+
+  &__option {
+    padding: 0 4px;
   }
 
   &__search-button-container {

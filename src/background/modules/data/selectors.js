@@ -3,3 +3,4 @@ export const getSearchData = (state) => state.data.searchData || {};
 export const getCurrentSettings = (state) => state.data.currentSettings || {
   form: 'any', type: 'any', school: 'any', timeline: 'any',
 };
+export const getCurrentItem = (state) => state.data.currentItem || {};
