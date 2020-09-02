@@ -32,36 +32,45 @@ export const MenuContainer = memo(({ currentSettings, updateSearchSelectData, fe
         </div>
         <div className={cn(`${BLOCK_NAME}__selectors`)}>
           <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-            <select title="form" value={currentSettings.form} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-              {searchSettings.form.map((form) => <option key={form} value={form}>{form}</option>)}
-            </select>
+            <label className={cn(`${BLOCK_NAME}__selector-label`)}>
+              <select title="form" value={currentSettings.form} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+                {searchSettings.form.map((form) => <option key={form} value={form}>{form}</option>)}
+              </select>
+            </label>
           </div>
           <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-            <select title="type" value={currentSettings.type} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-              {searchSettings.type.map((type) => <option key={type} value={type} className={cn(`${BLOCK_NAME}__option`)}>{type}</option>)}
-            </select>
+            <label className={cn(`${BLOCK_NAME}__selector-label`)}>
+              <select title="type" value={currentSettings.type} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+                {searchSettings.type.map((type) => <option key={type} value={type} className={cn(`${BLOCK_NAME}__option`)}>{type}</option>)}
+              </select>
+            </label>
           </div>
           <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-            <select title="school" value={currentSettings.school} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-              {
+            <label className={cn(`${BLOCK_NAME}__selector-label`)}>
+
+              <select title="school" value={currentSettings.school} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+                {
               searchSettings.school.map((school) => (
                 <option key={school} value={school}>
                   {school}
                 </option>
               ))
             }
-            </select>
+              </select>
+            </label>
           </div>
           <div className={cn(`${BLOCK_NAME}__selector-container`)}>
-            <select title="timeline" value={currentSettings.timeline} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
-              {
+            <label className={cn(`${BLOCK_NAME}__selector-label`)}>
+              <select title="timeline" value={currentSettings.timeline} onChange={selectorOnChange} className={cn(`${BLOCK_NAME}__selector`)}>
+                {
               searchSettings.timeline.map((timeline) => (
                 <option key={timeline} value={timeline}>
                   {timeline}
                 </option>
               ))
             }
-            </select>
+              </select>
+            </label>
           </div>
           <div className={cn(`${BLOCK_NAME}__search-button-container`)}>
             <button type="button" onClick={searchButtonOnClick} className={cn(`${BLOCK_NAME}__search-button`)}>
