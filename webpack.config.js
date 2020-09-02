@@ -115,12 +115,14 @@ const newtabWebpackConfig = {
     ],
   },
   plugins: [
-    new CopyPlugin([
-      {
-        from: path.join(process.cwd(), 'src', 'manifest.json'),
-        to: buildPath,
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.join(process.cwd(), 'src', 'manifest.json'),
+          to: buildPath,
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       title: 'NewTabGallery',
